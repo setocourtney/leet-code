@@ -17,7 +17,28 @@ const getDays = (a, b) => {
     return (b - a) / 86400000;
 }
 
-console.log(getDays(
-    new Date("June 14, 2019"),
-    new Date("June 20, 2019")
-  ));
+
+// Write a program to find all the prime factors of a given number. 
+// The program must return an array containing all the prime factors, sorted in ascending order. 
+// Remember that 1 is neither prime nor composite and should not be included in your output array.
+// primeFactorize(25) ➞ [5, 5]
+
+const primeFactorize = (num) => {
+    let isPrime = true;
+    // test if integers from 2 to sqrt(num) is divisible without remainder, then num is not prime
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+            //num is not prime
+            isPrime = false;
+            //run recursion to test if factors are prime
+            return primeFactorize(i).concat(primeFactorize(num / i));
+        }
+    }
+    if (isPrime) {
+        //num is prime
+        return [num];
+    }
+}
+
+console.log(primeFactorize(2532))
+
