@@ -7,6 +7,17 @@ const oddishOrEvenish = (num) => {
     return num.toString().split('').reduce((sum, val) => parseInt(val) + parseInt(sum)) % 2 === 0 ? "Evenish" : "Oddish";
 }
 
-console.log(oddishOrEvenish(694));
-console.log(oddishOrEvenish(4433));
-console.log(oddishOrEvenish(11));
+// Create a function that takes two dates and returns the number of days between the first and second date.
+// getDays(
+//     new Date("June 14, 2019"),
+//     new Date("June 20, 2019")
+//   ) ➞ 6
+
+const getDays = (a, b) => {
+    return (b - a) / 86400000;
+}
+
+console.log(getDays(
+    new Date("June 14, 2019"),
+    new Date("June 20, 2019")
+  ));
