@@ -21,4 +21,19 @@ const alternateSort = (arr) => {
     return newArr;
 }
 
-console.log(alternateSort([-2, "f", "A", 0, 100, "z"]));
+// A boomerang is a V-shaped sequence that is either upright or upside down. 
+// Specifically, a boomerang can be defined as: sub-array of length 3, 
+// with the first and last digits being the same and the middle digit being different.
+// Boomerang Examples [3, 7, 3], [1, -1, 1], [5, 6, 5]
+// Create a function that returns the total number of boomerangs in an array.
+// countBoomerangs([9, 5, 9, 5, 1, 1, 1]) ➞ 2
+// countBoomerangs([5, 6, 6, 7, 6, 3, 9]) ➞ 1
+// countBoomerangs([4, 4, 4, 9, 9, 9, 9]) ➞ 0
+
+const countBoomerangs = (arr) => {
+    let count = 0;
+    for (let i = 0; i < arr.length - 2; i++) {
+        arr[i] === arr[i + 2] && arr[i + 1] !== arr[i] && arr[i + 1] !== arr[i + 2] ? count++ : null;
+    }
+    return count;
+}
