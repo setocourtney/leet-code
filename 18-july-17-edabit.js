@@ -69,3 +69,5 @@ const filterPrimes = (num) => {
 }
 
 console.log(filterPrimes([10007, 1009, 1007, 27, 147, 77, 1001, 70]));
+
+console.log([] == []);
