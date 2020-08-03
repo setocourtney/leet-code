@@ -37,15 +37,13 @@ console.log(isPalindrome("race a car"));
 
 /* ------------------------------------------------------------------------ */
 
-/*  Result: 85.27%
+/*  Result: 99.64%
     Runtime:
-        best case: O(1)
-        worst case: O(1)
-        average case: O(1)
-    Time to Complete: 30 min
+        best case: O(n) - due to reverse()
+        worst case: O(n)
+        average case: O(n)
+    Time to Complete: 25 min
     Notes: 
-        Had to relookup a few concepts
-            hashset - unsorted set of keys (like an object but uses it's own indices as keys)
-            constructor functions - using Object.prototype to create new functions associated with the object
+        - need to practice regex
 
 */
