@@ -52,34 +52,33 @@ class Tree {
     verticalTraversal() {
         let result = [];
         let current = this.root;
-        let leftBound = findLeft(current);     
+        let leftBound = findLeft(current);
         let traverse = function(node, x, y) {
             if (result[x-leftBound]) {
                 result[x-leftBound].push(node.value);
             } else {
                 result[x-leftBound] = [node.value];
             }
-            if (node.left) {
+            if (node.left !== null) {
                 traverse(node.left, x-1, y-1);
             }
-            if (node.right) {
+            if (node.right!== null) {
                 traverse(node.right, x+1, y-1);
             }
-            console.log("node: " + node + " X: " + x + " y: " + y + " result : " + result)
         }
-
         traverse(current, 0, 0);
-        console.log(result);
         return result;
     };
 }
 
 const insert = function(arr, node, i , n) {
     if ( i < n) {
-        let temp = new TreeNode(arr[i]);
-        node = temp;
-        node.left = insert(arr, node.left, 2 * i + 1, n);
-        node.right = insert(arr, node.right, 2 * i + 2, n);
+        if (arr[i] !== null) {
+            let temp = new TreeNode(arr[i]);
+            node = temp;
+            node.left = insert(arr, node.left, 2 * i + 1, n);
+            node.right = insert(arr, node.right, 2 * i + 2, n);
+        }
     }
     return node;
 }
@@ -88,7 +87,7 @@ const findLeft = function(node) {
     let x = 0;
     let current = node;
     while (current.left) {
-        if (current.left.value !== null) x--;
+        if (current.left !== null) x--;
         current = current.left;
     }
     return x;
@@ -97,3 +96,6 @@ const findLeft = function(node) {
 let tree = new Tree();
 tree.insertArray([3,9,20,null,null,15,7]);
 tree.verticalTraversal();
+let tree2 = new Tree();
+tree2.insertArray([1,2,3,4,5,6,7]);
+tree2.verticalTraversal();
