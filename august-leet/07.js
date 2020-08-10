@@ -69,6 +69,27 @@ class Tree {
         traverse(current, 0, 0);
         return result;
     };
+
+    verticalTraversal() {
+        let result = [];
+        let current = this.root;
+        let leftBound = findLeft(current);
+        let traverse = function(node, x, y) {
+            if (result[x-leftBound]) {
+                result[x-leftBound].push(node.value);
+            } else {
+                result[x-leftBound] = [node.value];
+            }
+            if (node.left !== null) {
+                traverse(node.left, x-1, y-1);
+            }
+            if (node.right!== null) {
+                traverse(node.right, x+1, y-1);
+            }
+        }
+        traverse(current, 0, 0);
+        return result;
+    };
 }
 
 const insert = function(arr, node, i , n) {
