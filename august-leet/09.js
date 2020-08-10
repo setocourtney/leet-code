@@ -1,48 +1,32 @@
-// Excel Sheet Column Number
+// Rotting Oranges
 
-// Given a column title as appear in an Excel sheet, return its corresponding column number.
+// In a given grid, each cell can have one of three values:
+// the value 0 representing an empty cell;
+// the value 1 representing a fresh orange;
+// the value 2 representing a rotten orange.
+// Every minute, any fresh orange that is adjacent (4-directionally) to a rotten orange becomes rotten.
+// Return the minimum number of minutes that must elapse until no cell has a fresh orange.  If this is impossible, return -1 instead.
 
-/* For example:
-    A -> 1
-    B -> 2
-    C -> 3
-    ...
-    Z -> 26
-    AA -> 27
-    AB -> 28 */
+// Example 1:
+// YXX
+// XX0
+// 0XX
 
-// recurrsion
-const titleToNumber = (s) => {
-    // ASCII A -> Z = 65 -> 90
-    let len = s.length;
-    if (len === 0) {
-        return 0;
-    } else if (len === 1) {
-        return s.charCodeAt(0) - 65 + 1;
-    } else {
-        return titleToNumber(s.substring(0, len - 1)) * 26 + titleToNumber(s[len - 1]);
-    }
-}
+// Input: [[2,1,1],[1,1,0],[0,1,1]]
+// Output: 4
 
-// refactored 
-const titleToNumber2 = (s) => {
-    let res = 0;
-    for (let i = 0; i < s.length; i++) {
-        res = res * 26 + s.charCodeAt(i) - 65 + 1;
-    }
-    return res;
-}
-
-console.log(titleToNumber("AB"));
+var orangesRotting = function(grid) {
+    
+};
 
 /* ------------------------------------------------------------------------ */
 
-/*  Result: 70.1%
+/*  Result: 
     Runtime:
-        best case: O(1)
-        worst case: O(n)
-        average case: O(n)
-    Space: O(1)
-    Time to Complete: 60 min
+        best case: 
+        worst case:
+        average case: 
+    Space: 
+    Time to Complete: 
 
 */

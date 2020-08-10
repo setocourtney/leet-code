@@ -28,6 +28,7 @@ class Tree {
         let current = this.root;
         if (this.root === null) return 0;      
 
+        // dfs for sum
         let getSum = function(node, currentSum) {
             if (node === null) return 0; // end recurrsion, node is null
             let currentVal = currentSum+=node.value; // increment currentSum
@@ -36,6 +37,7 @@ class Tree {
             return total // check sum of left and right nodes
         }
 
+        // iterate getSum over all nodes of tree
         let traverseTree = function(node) {
             if (node === null) return 0; // end recurrsion, node is null
             return getSum(node, 0) + traverseTree(node.left) + traverseTree(node.right); //call getSum on left and right
@@ -73,3 +75,5 @@ console.log(tree.pathSum(8));
     Time to Complete: 60 min
 
 */
+
+// Posted Solution: https://leetcode.com/explore/challenge/card/august-leetcoding-challenge/550/week-2-august-8th-august-14th/3417/discuss/784212/JavaScript-(recurrsion)
