@@ -1,3 +1,5 @@
+// -- Not complete --
+
 // Best Time to Buy and Sell Stock III
 
 // Say you have an array for which the ith element is the price of a given stock on day i.
@@ -47,5 +49,3 @@ console.log(maxProfit([3,3,5,0,0,3,1,4]));
 console.log(maxProfit([1,2,3,4,5]));
 console.log(maxProfit([7,6,4,3,1]));
 console.log(maxProfit([1,4,2]));
-
-//Not complete
