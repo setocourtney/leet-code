@@ -17,3 +17,37 @@
 // iterator.hasNext(); // returns true
 // iterator.next(); // returns "bc"
 // iterator.hasNext(); // returns false
+
+class CombinationIterator {
+    constructor(characters, combinationLength) {
+        this.characters = characters;
+        this.combinationLength = combinationLength;
+        this.combos = this.iterate('', 0);
+    }
+
+    iterate(str, index) {
+        if (str.length === this.combinationLength) return [str];
+        let result = [];
+        for (let i = index; i < this.characters.length; i++) {
+            result.push(...this.iterate(str + this.characters[i], i + 1)); // does not alter 'str'
+        }
+        return result;
+    }
+
+    hasNext() {
+        return this.combos.length > 0
+    }
+
+    next() {
+        return this.combos.shift();
+    }
+}
+
+let combinator = new CombinationIterator("abc", 2);
+console.log(combinator.hasNext());
+console.log(combinator.next());
+console.log(combinator.hasNext());
+console.log(combinator.next());
+console.log(combinator.hasNext());
+console.log(combinator.next());
+console.log(combinator.hasNext());
