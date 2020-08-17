@@ -48,6 +48,9 @@ console.log(hIndex([3,0,6,1,5]));
 console.log(hIndex([100]));
 console.log(hIndex([11,15]));
 
+
+/* ------------------------------------- */
+
 /*  Result: 81.66%
     Runtime:
         best case: O(1)

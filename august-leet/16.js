@@ -20,5 +20,32 @@
 // Output: 0
 // Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
+
+// Input: [3,3,5,0,0,3,1,4]
 var maxProfit = function(prices) {
+    if (prices.length <= 1) return 0;
+    let buy = 0;
+    let sell = 1;
+    let gains = 0;
+    while (sell < prices.length && buy < sell) {
+        let profit = prices[sell] - prices[buy];
+        if (profit > gains) {
+            gains = profit;
+            let nextProfit = maxProfit(prices.slice(sell));
+            if (nextProfit > gains) {
+                gains += nextProfit;
+                buy = sell + 1;
+            }
+        }
+        if (prices[sell] < prices[buy]) buy = sell;
+        sell++;
+    }
+    return gains;
 };
+
+console.log(maxProfit([3,3,5,0,0,3,1,4]));
+console.log(maxProfit([1,2,3,4,5]));
+console.log(maxProfit([7,6,4,3,1]));
+console.log(maxProfit([1,4,2]));
+
+//Not complete
