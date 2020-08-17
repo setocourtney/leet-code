@@ -120,3 +120,6 @@ tree.verticalTraversal();
 let tree2 = new Tree();
 tree2.insertArray([1,2,3,4,5,6,7]);
 tree2.verticalTraversal();
+
+
+// Not complete

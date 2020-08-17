@@ -1,18 +1,18 @@
-// Longest Palindrome
-// Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.
+// Non-Overlapping Intervals
+// Given a collection of intervals, find the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.
 
-// This is case sensitive, for example "Aa" is not considered a palindrome here.
+// Example 1:
 
-// Note:
-// Assume the length of given string will not exceed 1,010.
+// Input: [[1,2],[2,3],[3,4],[1,3]]
+// Output: 1
+// Explanation: [1,3] can be removed and the rest of intervals are non-overlapping.
+// Example 2:
 
-// Example:
+// Input: [[1,2],[1,2],[1,2]]
+// Output: 2
+// Explanation: You need to remove two [1,2] to make the rest of intervals non-overlapping.
+// Example 3:
 
-// Input:
-// "abccccdd"
-
-// Output:
-// 7
-
-// Explanation:
-// One longest palindrome that can be built is "dccaccd", whose length is 7.
+// Input: [[1,2],[2,3]]
+// Output: 0
+// Explanation: You don't need to remove any of the intervals since they're already non-overlapping.

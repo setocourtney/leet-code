@@ -1,26 +1,18 @@
-// Iterator for Combination
+// Longest Palindrome
+// Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.
 
-// Design an Iterator class, which has:
+// This is case sensitive, for example "Aa" is not considered a palindrome here.
 
-// A constructor that takes a string characters of sorted distinct lowercase English letters and a number combinationLength as arguments.
-// A function next() that returns the next combination of length combinationLength in lexicographical order.
-// A function hasNext() that returns True if and only if there exists a next combination.
- 
+// Note:
+// Assume the length of given string will not exceed 1,010.
 
 // Example:
 
-// CombinationIterator iterator = new CombinationIterator("abc", 2); // creates the iterator.
+// Input:
+// "abccccdd"
 
-// iterator.next(); // returns "ab"
-// iterator.hasNext(); // returns true
-// iterator.next(); // returns "ac"
-// iterator.hasNext(); // returns true
-// iterator.next(); // returns "bc"
-// iterator.hasNext(); // returns false
- 
+// Output:
+// 7
 
-// Constraints:
-
-// 1 <= combinationLength <= characters.length <= 15
-// There will be at most 10^4 function calls per test.
-// It's guaranteed that all calls of the function next are valid.
+// Explanation:
+// One longest palindrome that can be built is "dccaccd", whose length is 7.

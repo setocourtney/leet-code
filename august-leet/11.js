@@ -35,14 +35,25 @@ var hIndex = function(citations) {
     let h = 0;
     if (n === 1 && sorted[0] === 0) return 0;
     for (let i = 0; i < n; i++) {
-        if (sorted[i] >= i + 1 && i <= n - i) {
+        if (sorted[i] >= i + 1) {
             h = i + 1;
+        } else {
+            break;
         }
     }
     return h;
 };
 
 console.log(hIndex([3,0,6,1,5]));
+console.log(hIndex([100]));
+console.log(hIndex([11,15]));
 
-// [100] => 1
-// [11, 15] => 2
+/*  Result: 81.66%
+    Runtime:
+        best case: O(1)
+        worst case: O(n)
+        average case: O(n)
+    Space: O(n)
+    Time to Complete: 30 min
+
+*/
