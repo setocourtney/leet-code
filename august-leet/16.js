@@ -24,28 +24,27 @@
 
 
 // Input: [3,3,5,0,0,3,1,4]
-var maxProfit = function(prices) {
+var maxProfit = function(prices, isSecond) {
     if (prices.length <= 1) return 0;
     let buy = 0;
     let sell = 1;
-    let gains = 0;
+    let gains = [0,0];
     while (sell < prices.length && buy < sell) {
         let profit = prices[sell] - prices[buy];
-        if (profit > gains) {
-            gains = profit;
-            let nextProfit = maxProfit(prices.slice(sell));
-            if (nextProfit > gains) {
-                gains += nextProfit;
-                buy = sell + 1;
+        if (profit > gains[0] + gains[1]) {
+            gains[0] = profit;
+            if (!isSecond) {
+                gains[1] = maxProfit(prices.slice(sell), true);
             }
         }
         if (prices[sell] < prices[buy]) buy = sell;
         sell++;
     }
-    return gains;
+    return isSecond ? gains[0] : gains[0] + gains[1];
 };
 
-console.log(maxProfit([3,3,5,0,0,3,1,4]));
-console.log(maxProfit([1,2,3,4,5]));
-console.log(maxProfit([7,6,4,3,1]));
-console.log(maxProfit([1,4,2]));
+console.log(maxProfit([3,3,5,0,0,3,1,4])); //6
+console.log(maxProfit([1,2,3,4,5])); //4
+console.log(maxProfit([7,6,4,3,1])); //0
+console.log(maxProfit([1,4,2])); //3
+console.log(maxProfit([2,1,4,5,2,9,7])); //11
